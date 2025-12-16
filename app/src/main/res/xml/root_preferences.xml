@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Sub-pantalla Formato básico -->
+    <PreferenceScreen
+        app:key="basic_format_screen"
+        app:title="@string/pref_category_basic"
+        app:summary="Tamaño, colores y estilos"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            app:key="font_size"
+            app:title="@string/pref_text_size_title"
+            app:summary="@string/pref_text_size_summary"
+            app:entries="@array/font_size_names"
+            app:entryValues="@array/font_size_values"
+            app:defaultValue="18"
+            app:useSimpleSummaryProvider="true"
+            app:iconSpaceReserved="false" />
+
+        <ListPreference
+            app:key="font_color"
+            app:title="@string/pref_text_color_title"
+            app:summary="@string/pref_text_color_summary"
+            app:entries="@array/font_color_names"
+            app:entryValues="@array/font_color_values"
+            app:defaultValue="#FF000000"
+            app:useSimpleSummaryProvider="true"
+            app:iconSpaceReserved="false" />
+
+        <ListPreference
+            app:key="background_color"
+            app:title="@string/pref_bg_color_title"
+            app:summary="@string/pref_bg_color_summary"
+            app:entries="@array/background_color_names"
+            app:entryValues="@array/background_color_values"
+            app:defaultValue="#00000000"
+            app:useSimpleSummaryProvider="true"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreferenceCompat
+            app:key="text_bold"
+            app:title="@string/pref_bold_title"
+            app:summary="@string/pref_bold_summary"
+            app:defaultValue="false"
+            app:iconSpaceReserved="false"/>
+
+        <CheckBoxPreference
+            app:key="text_italic"
+            app:title="@string/pref_italic_title"
+            app:summary="@string/pref_italic_summary"
+            app:defaultValue="false"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceScreen>
+
+    <!-- Sub-pantalla Formato avanzado -->
+    <PreferenceScreen
+        app:key="advanced_format_screen"
+        app:title="@string/pref_category_advanced"
+        app:summary="@string/advanced_prefs"
+        app:iconSpaceReserved="false">
+
+        <EditTextPreference
+            app:key="text_alpha"
+            app:title="@string/pref_alpha_title"
+            app:summary="@string/pref_alpha_summary"
+            app:defaultValue="1.0"
+            app:useSimpleSummaryProvider="true"
+            app:iconSpaceReserved="false" />
+
+        <SeekBarPreference
+            app:key="text_rotation"
+            app:title="@string/pref_rotation_title"
+            app:summary="@string/pref_rotation_summary"
+            app:defaultValue="0"
+            app:min="0"
+            android:max="360"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceScreen>
+
+</androidx.preference.PreferenceScreen>

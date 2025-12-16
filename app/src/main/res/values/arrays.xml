@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="font_size_names">
+        <item>Muy pequeño</item>
+        <item>Pequeño</item>
+        <item>Normal</item>
+        <item>Grande</item>
+        <item>Muy grande</item>
+        <item>Enorme</item>
+        <item>Gigante</item>
+    </string-array>
+
+    <string-array name="font_size_values">
+        <item>10</item>
+        <item>14</item>
+        <item>18</item>
+        <item>24</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+
+    <string-array name="font_color_names">
+        <item>Negro</item>
+        <item>Blanco</item>
+        <item>Rojo</item>
+        <item>Verde</item>
+        <item>Azul</item>
+        <item>Amarillo</item>
+        <item>Magenta</item>
+        <item>Cian</item>
+    </string-array>
+
+    <string-array name="font_color_values">
+        <item>#FF000000</item>
+        <item>#FFFFFFFF</item>
+        <item>#FFFF0000</item>
+        <item>#FF00FF00</item>
+        <item>#FF0000FF</item>
+        <item>#FFFFFF00</item>
+        <item>#FFFF00FF</item>
+        <item>#FF00FFFF</item>
+    </string-array>
+
+    <string-array name="background_color_names">
+        <item>Transparente</item>
+        <item>Blanco</item>
+        <item>Negro</item>
+        <item>Gris claro</item>
+        <item>Gris oscuro</item>
+        <item>Rojo claro</item>
+        <item>Verde claro</item>
+        <item>Azul claro</item>
+    </string-array>
+
+    <string-array name="background_color_values">
+        <item>#00000000</item>
+        <item>#FFFFFFFF</item>
+        <item>#FF000000</item>
+        <item>#FFE0E0E0</item>
+        <item>#FF404040</item>
+        <item>#FFFFCCCC</item>
+        <item>#FFCCFFCC</item>
+        <item>#FFCCCCFF</item>
+    </string-array>
+
+    <string-array name="empty_array" />
+</resources>
