@@ -2,7 +2,7 @@
 Aplicación de configuración con dos Activities. Crea una aplicación que permita personalizar la visualización de texto según el usuario modifique ajustes de color, fondo, estilo, transparencia y rotación.
 
 ## Demo
-Se puede ver la demo del proyecto en la carpeta de este zip como [demo_preferenceScreen.mp4](demo_sharedPreferences.mp4). Cualquier problema con la versión entregada por Moodle (tanto del proyecto como del README) se puede usar el repositorio donde se encuentra alojada la práctica: 
+Se puede ver la demo del proyecto en la carpeta de este zip como [demo_preferenceScreen.mp4](demo_sharedPreferences.mp4). Cualquier problema con la versión entregada por Moodle (tanto del proyecto como del README) se puede usar el repositorio donde se encuentra alojada la práctica: [https://github.com/solsolet/PreferenceScreen.git](https://github.com/solsolet/PreferenceScreen.git)
 
 ## Implementación
 Primero se creó la base de la aplicación con _layouts_ para las diferentes pantallas con los elementos requeridos. La aplicación consta de 2 actividades:
