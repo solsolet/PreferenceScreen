@@ -3,6 +3,7 @@ package es.ua.eps.preferencescreen
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.InputType
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
@@ -37,7 +38,7 @@ class SettingsFragment : PreferenceFragmentCompat(),
                 }
             }
 
-            // Navegar a la sub-pantalla
+            // Navigate to sub-pantalla
             parentFragmentManager
                 .beginTransaction()
                 .replace(R.id.settings_container, fragment)
@@ -54,6 +55,8 @@ class SettingsFragment : PreferenceFragmentCompat(),
         // Registrar listener
         preferenceScreen.sharedPreferences
             ?.registerOnSharedPreferenceChangeListener(this@SettingsFragment)
+
+        updateActionBar()
     }
 
     override fun onPause() {
@@ -67,15 +70,15 @@ class SettingsFragment : PreferenceFragmentCompat(),
         sharedPreferences: SharedPreferences?,
         key: String?
     ) {
-        when (key) {
-            "dark_mode" -> {
-                val darkMode = sharedPreferences?.getBoolean(key, false) ?: false
-                applyDarkMode(darkMode)
-            }
-            "font_size" -> {
-                updateFontSizePreference()
-            }
-        }
+//        when (key) {
+//            "dark_mode" -> {
+//                val darkMode = sharedPreferences?.getBoolean(key, false) ?: false
+//                applyDarkMode(darkMode)
+//            }
+//            "font_size" -> {
+//                updateFontSizePreference()
+//            }
+//        }
     }
 
     private fun applyDarkMode(enabled: Boolean) {
@@ -91,5 +94,30 @@ class SettingsFragment : PreferenceFragmentCompat(),
     private fun updateFontSizePreference() {
         val preference = findPreference<ListPreference>("font_size")
         preference?.summary = preference?.entry
+    }
+
+    private fun updateActionBar() {
+        val activity = activity as? AppCompatActivity ?: return
+        val actionBar = activity.supportActionBar ?: return
+
+        // Obtener el rootKey (null = pantalla principal, valor = sub-pantalla)
+        val rootKey = arguments?.getString(ARG_PREFERENCE_ROOT)
+
+        if (rootKey != null) {
+            // sub-pantalla
+            val preferenceScreen = findPreference<PreferenceScreen>(rootKey)
+
+            actionBar.title = preferenceScreen?.title ?: getString(R.string.settings_title)
+
+            // botón "Atrás"
+            actionBar.setDisplayHomeAsUpEnabled(true)
+            actionBar.setHomeButtonEnabled(true)
+        } else {
+            // "Main screen"
+            actionBar.title = getString(R.string.settings_title)
+
+            // Mostrar botón hamburguesa (esto lo gestiona el DrawerToggle)
+            actionBar.setDisplayHomeAsUpEnabled(true)
+        }
     }
 }

@@ -43,6 +43,11 @@ class SettingsActivity : AppCompatActivity(),
                 .replace(R.id.settings_container, SettingsFragment())
                 .commit()
         }
+
+        // BackStack Listener (update button when change)
+        supportFragmentManager.addOnBackStackChangedListener {
+            updateNavigationIcon()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -70,5 +75,19 @@ class SettingsActivity : AppCompatActivity(),
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    // Update nav icon
+    private fun updateNavigationIcon() {
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            // Hay sub-pantallas: deshabilitar drawer toggle, mostrar flecha "Atrás"
+            drawerToggle.isDrawerIndicatorEnabled = false
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        } else {
+            // Pantalla principal: habilitar drawer toggle (hamburguesa)
+            supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            drawerToggle.isDrawerIndicatorEnabled = true
+            drawerToggle.syncState()
+        }
     }
 }

@@ -106,25 +106,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val alpha = prefs.getString("text_alpha", "1.0")?.toFloatOrNull() ?: 1.0f
         val rotation = prefs.getInt("text_rotation", 0)
 
-        // Aplicar formato al TextView
+        // Format TextView
         with(binding.tvResultado) {
             text = texto
 
-            // Tamaño
             setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
 
-            // Colores
             try {
                 setTextColor(textColor.toColorInt())
                 setBackgroundColor(bgColor.toColorInt())
             } catch (e: IllegalArgumentException) {
                 Log.d("error", e.toString())
-                // Color inválido, usar valores por defecto
+                // Invalid color, use default values
                 setTextColor(Color.BLACK)
                 setBackgroundColor(Color.TRANSPARENT)
             }
 
-            // Estilo (negrita/cursiva)
             val style = when {
                 isBold && isItalic -> Typeface.BOLD_ITALIC
                 isBold -> Typeface.BOLD
@@ -133,10 +130,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             setTypeface(typeface, style)
 
-            // Transparencia (alpha) - validar rango
             this.alpha = alpha.coerceIn(0f, 1f)
 
-            // Rotación
             this.rotation = rotation.toFloat()
         }
     }
